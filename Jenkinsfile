@@ -11,13 +11,13 @@ pipeline {
         stage('Build Image') {
             steps {
                 sh 'ls -l'
-                sh 'docker build -t Jayeshk15/myweb .'
+                sh 'docker build -t jayeshk15/myweb .'
             }
         }
         
         stage('push image') {
             steps {
-                sh 'docker push Jayeshk15/myweb'
+                sh 'docker push jayeshk15/myweb'
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
         
 	stage('creat service') {
             steps {
-                sh 'docker service create --name myservice -p 4000:4000 --replicas 2 Jayeshk15/myweb'
+                sh 'docker service create --name myservice -p 4000:4000 --replicas 2 jayeshk15/myweb'
             }
         }
     }
